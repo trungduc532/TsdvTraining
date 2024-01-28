@@ -57,7 +57,16 @@ public class MainScreen {
 		System.out.println("2. Twenty-four-hour ticket");
 		System.out.println("3. Prepaid card");
 		System.out.print("Your choice: ");
-		
-		return console.nextInt();
+
+		int choiceFinal = 4;
+		while (choiceFinal < 1 || choiceFinal > 3) {
+			try {
+				choiceFinal = Integer.parseInt(console.nextLine());
+			} catch (Exception e) {
+				System.out.print("Your choice is incorrect. Choice again: ");
+				choiceFinal = 4;
+			}
+		}
+		return choiceFinal;
 	}
 }

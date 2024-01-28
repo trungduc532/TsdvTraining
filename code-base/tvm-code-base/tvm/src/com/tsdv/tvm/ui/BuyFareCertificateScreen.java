@@ -29,11 +29,15 @@ public abstract class BuyFareCertificateScreen {
 				return false;
 			}
 			
-			System.out.print("Enter the number of fare certificates (0< <=" + maxNumber
+			System.out.print("Enter the number of fare certificates (0< x <=" + maxNumber
 						+ ") you want to buy (0 for Main Screen):  ");
-			numberOfFareCertificates = console.nextInt();
+			try {
+				numberOfFareCertificates = Integer.parseInt(console.nextLine());
+			} catch (Exception e) {
+				System.out.println("Number of fare certificates must be number");
+				numberOfFareCertificates = -1;
+			}
 		}
-
 		return true;
 	}
 	
